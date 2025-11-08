@@ -60,7 +60,7 @@ metadata:
   name: camunda
   namespace: camunda
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: camunda
