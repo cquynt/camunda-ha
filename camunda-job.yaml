@@ -2,8 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: camunda-job
+  namespace: camunda
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: camunda-job
@@ -28,3 +29,15 @@ spec:
               value: "org.postgresql.Driver"
             - name: CAMUNDA_BPM_JOB_EXECUTION_ENABLED
               value: "true"
+          livenessProbe:
+            httpGet:
+              path: /camunda/app/welcome/default/
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /camunda/app/welcome/default/
+              port: 8080
+            initialDelaySeconds: 45
+            periodSeconds: 10
