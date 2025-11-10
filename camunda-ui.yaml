@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camunda-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: camunda-ui
+  template:
+    metadata:
+      labels:
+        app: camunda-ui
+    spec:
+      containers:
+      - name: camunda-ui
+        image: camunda/camunda-bpm-platform:run-latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:postgresql://your-db-host:5432/camunda"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "your-db-username"
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "your-db-password"
+        - name: CAMUNDA_BPM_JOB_EXECUTION_ENABLED
+          value: "false"
