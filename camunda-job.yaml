@@ -33,11 +33,11 @@ spec:
               value: "-XX:+UseContainerSupport -XX:MaxRAMPercentage=80.0 -XX:InitialRAMPercentage=60.0 -XX:MinRAMPercentage=40.0 -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:+AlwaysPreTouch"
           resources:
             requests:
-              cpu: "1000m"
-              memory: "2Gi"
+              cpu: "250m"
+              memory: "512Mi"
             limits:
-              cpu: "4"
-              memory: "4Gi"
+              cpu: "500m"
+              memory: "1Gi"
           livenessProbe:
             httpGet:
               path: /camunda/app/welcome/default/
