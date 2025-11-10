@@ -8,8 +8,8 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: camunda-job
-  minReplicas: 5
-  maxReplicas: 10
+  minReplicas: 100
+  maxReplicas: 100
   metrics:
     - type: Resource
       resource:
