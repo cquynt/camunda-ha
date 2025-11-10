@@ -4,7 +4,7 @@ metadata:
   name: camunda-job
   namespace: camunda
 spec:
-  replicas: 5
+  replicas: 10
   selector:
     matchLabels:
       app: camunda-job
