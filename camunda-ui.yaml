@@ -27,5 +27,5 @@ spec:
             - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
               value: "org.postgresql.Driver"
             - name: CAMUNDA_BPM_JOB_EXECUTION_ENABLED
-              value: "true"
+              value: "false"
 
