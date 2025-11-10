@@ -33,11 +33,15 @@ spec:
             httpGet:
               path: /camunda/app/welcome/default/
               port: 8080
-            initialDelaySeconds: 60
-            periodSeconds: 15
+            initialDelaySeconds: 120
+            periodSeconds: 20
+            timeoutSeconds: 10
+            failureThreshold: 6
           readinessProbe:
             httpGet:
               path: /camunda/app/welcome/default/
               port: 8080
-            initialDelaySeconds: 45
+            initialDelaySeconds: 190
             periodSeconds: 10
+            timeoutSeconds: 10
+            failureThreshold: 6
