@@ -4,7 +4,7 @@ metadata:
   name: camunda-job-pdb
   namespace: camunda
 spec:
-  minAvailable: 2
+  minAvailable: 100
   selector:
     matchLabels:
       app: camunda-job
