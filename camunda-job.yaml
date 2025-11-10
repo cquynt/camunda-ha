@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: camunda-job
-          image: camunda/camunda-bpm-platform:7.20.0
+          image: camunda/camunda-bpm-platform:latest
           ports:
             - containerPort: 8080
           env:
