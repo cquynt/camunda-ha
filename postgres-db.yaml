@@ -4,11 +4,10 @@ metadata:
   name: postgres
 spec:
   ports:
-  - port: 5432
-    targetPort: 5432
+    - port: 5432
+      targetPort: 5432
   selector:
     app: postgres
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -25,14 +24,20 @@ spec:
         app: postgres
     spec:
       containers:
-      - name: postgres
-        image: postgres:13
-        env:
-        - name: POSTGRES_DB
-          value: "camunda"
-        - name: POSTGRES_USER
-          value: "your-db-username"
-        - name: POSTGRES_PASSWORD
-          value: "your-db-password"
-        ports:
-        - containerPort: 5432
+        - name: postgres
+          image: postgres:13
+          env:
+            - name: POSTGRES_DB
+              value: camundatest
+            - name: POSTGRES_USER
+              value: camunda
+            - name: POSTGRES_PASSWORD
+              value: camunda
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgres-persistent-storage
+      volumes:
+        - name: postgres-persistent-storage
+          emptyDir: {}

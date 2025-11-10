@@ -13,16 +13,16 @@ spec:
         app: camunda-job
     spec:
       containers:
-      - name: camunda-job
-        image: camunda/camunda-bpm-platform:run-latest
-        ports:
-        - containerPort: 8080 # Có thể bỏ public port nếu không cần UI
-        env:
-        - name: SPRING_DATASOURCE_URL
-          value: "jdbc:postgresql://your-db-host:5432/camunda"
-        - name: SPRING_DATASOURCE_USERNAME
-          value: "your-db-username"
-        - name: SPRING_DATASOURCE_PASSWORD
-          value: "your-db-password"
-        - name: CAMUNDA_BPM_JOB_EXECUTION_ENABLED
-          value: "true"
+        - name: camunda-job
+          image: camunda/camunda-bpm-platform:run-latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres:5432/camundatest"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "camunda"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "camunda"
+            - name: CAMUNDA_BPM_JOB_EXECUTION_ENABLED
+              value: "true"
